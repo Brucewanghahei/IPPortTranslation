@@ -8,14 +8,14 @@ My solution was that, first we read and store all the translation information wi
 
 
 The data structure I used is hashmap. Because in the NAT file, an (ip, port) pair may have three formats:
-1. ip:port
-2. \*:port
-3. ip:\*
+> ip:port
+> \*:port
+> ip:\*
 
 Therefore I used three different hashmaps for each of these cases:
-1. ip\_port\_map<string, string>, while key is ip:port and value is the new ip:port
-2. port\_map<string, string>, while key is port and value is the new ip:port
-3. ip\_map<string, string>, while key is ip and value is the new ip:port
+> ip\_port\_map<string, string>, while key is ip:port and value is the new ip:port
+> port\_map<string, string>, while key is port and value is the new ip:port
+> ip\_map<string, string>, while key is ip and value is the new ip:port
 Depends on whether the string contains the char \* and whether this \* is on ip or port, the string will be distributed to a different hashmap. Similar idea to check a given (ip, port) pair in the FLOW file. My program will check format 1 first. If format 1 is satisfied, result will be written to the output file and continue. Otherwise it will check format 2, and then format 3.
 
 
@@ -23,7 +23,8 @@ The reason I use hashmap is that it takes O(1) time to check the existence of an
 
 
 Some edge cases:
-1.1.1.1:1000,2.2.2.2:2000
-\*:1000,3.3.3.3:3000
-1.1.1.1:\*,4.4.4.4:4000
-If given an (ip, port) pair, eg. 1.1.1.1:1000, which satisfies all three cases. My program will output 2.2.2.2:2000 beacuse it checks format 1 first and the given string matches.
+> 1.1.1.1:1000,2.2.2.2:2000
+> \*:1000,3.3.3.3:3000
+> 1.1.1.1:\*,4.4.4.4:4000
+
+If given an (ip, port) pair, eg. 1.1.1.1:1000, which satisfies all three cases. My program will output 2.2.2.2:2000 because it checks format 1 first and the given string matches.
