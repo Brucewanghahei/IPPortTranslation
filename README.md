@@ -10,7 +10,7 @@ My solution was that, first we read and store all the translation infomation wit
 The data structure I used is hashmap. Because in the NAT file, an (ip, port) pair may have three formats:
 1. ip:port
 2. \*:port
-3. ip:\*
+3. ip:\*\n
 Therefore I used three different hashmaps for each of these cases:
 1. ip_port_map<string, string>, while key is ip:port and value is the new ip:port
 2. port_map<string, string>, while key is port and value is the new ip:port
