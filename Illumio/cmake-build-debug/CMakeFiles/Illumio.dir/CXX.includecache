@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Bruce/Dropbox/CLionProjects/Illumio/main.cpp
+fstream
+-
+iostream
+-
+string
+-
+unordered_map
+-
+
