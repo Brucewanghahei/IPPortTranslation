@@ -81,5 +81,6 @@ void IPPortTranslation::translate(string NAT_file, string FLOW_file) {
 
 int main() {
     IPPortTranslation test;
-    test.translate("../Tests/NAT.txt", "../Tests/FLOW.txt");
+    //test.translate("../Tests/NAT.txt", "../Tests/FLOW.txt");
+    test.translate("../Tests/NAT2.txt", "../Tests/FLOW2.txt");
 }
